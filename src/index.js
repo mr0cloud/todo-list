@@ -10,7 +10,7 @@ const manager = new ProjectManager()
 ///////////////////Default project///////////////
 if (manager.projects.length === 0) {
     const defaultProject = manager.createProject("Default Project");
-    manager.addTask("Default Task", "Testing this project", "High", "2025-01-01");
+    manager.addTask("Default Task", "Testing this project", "High", "2026-01-01");
 }
 
 manager.projects.forEach(project => {
