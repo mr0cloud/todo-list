@@ -1,0 +1,505 @@
+:root {
+    --project-bg: #4F5D2F;
+    --main-text: #D8DAD3;
+    --tasks-bg: #c5c7c1;
+    --tasks-header: #4F5D2F;
+    --tasks-header-bg: #e4e3e3;
+    --task-bg: #e2dfdf;
+    --project-btn: #A5402D;
+    --red-priority: #E4572E;
+    --yellow-priority: #E9B44C;
+    --green-priority: #4C9E57;
+    --active-project-border: #FF8811;
+    --active-project-bg: #8a3524;
+
+}
+
+html,
+body {
+    height: 100%;
+    margin: 0;
+
+    font-family: "Old Standard TT", serif;
+}
+
+.container {
+    display: flex;
+    min-height: 100vh;
+}
+
+
+.projects {
+    width: 30%;
+    padding: 10px;
+
+    display: flex;
+    flex-direction: column;
+
+    background-color: var(--project-bg);
+
+    box-shadow: 5px 0 15px rgba(0, 0, 0, 0.4);
+
+    position: relative;
+    z-index: 2;
+    overflow-y: auto; 
+    min-height: 100vh;
+}
+
+.projects h1 {
+    align-self: center;
+    color: var(--main-text);
+
+    font-weight: 600;
+    font-style: normal;
+    letter-spacing: 4px;
+    word-spacing: 6px;
+}
+
+#addProject {
+    background-color: var(--main-text);
+    color: var(--project-bg);
+    margin-bottom: 40px;
+
+    width: 100%;
+    height: 60px;
+
+    border: none;
+    border-radius: 5px;
+
+    font-size: 28px;
+    font-family: "Old Standard TT", serif;
+    font-weight: 600;
+    letter-spacing: 3px;
+
+    box-shadow: 0px 0px 20px -7px rgba(0, 0, 0, 0.75);
+    transition: 0.3s ease;
+}
+
+#addProject:hover {
+    background-color: #e2dfdfbe;
+    color: #4f5d2fc6;
+    cursor: pointer;
+}
+
+.projects-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    padding-top: 20px;
+}
+
+.ProjectBtn {
+    height: 60px;
+    width: 100%;
+
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+
+    font-size: 28px;
+    font-family: "Old Standard TT", serif;
+    font-weight: 600;
+    letter-spacing: 3px;
+
+    background-color: var(--project-btn);
+    color: var(--main-text);
+
+    border: none;
+    border-radius: 5px;
+
+    box-shadow: 0px 0px 20px -7px rgba(0, 0, 0, 0.75);
+    border-left: 3px solid transparent;
+    transition: border-left 0.3s ease, box-shadow 0.3s ease;
+}
+
+.ProjectBtn:hover {
+    box-shadow: 0 15px 20px rgba(0, 0, 0, 0.3);
+    border-left: 3px solid rgba(255, 255, 255, 0.3);
+    cursor: pointer;
+}
+
+.active-project {
+    border-right: none;
+    border-left: 4px solid var(--active-project-border);
+    background-color: var(--active-project-bg);
+}
+
+.deleteProjectBtn{
+    background-color: var(--project-btn);
+    border: none;
+    border-radius: 5px;
+    color: var(--main-text);
+
+    font-family: "Old Standard TT", serif;
+    font-weight: 300;
+    font-size: 20px;
+    opacity: 0.7;
+
+    transition: 0.3s ease;
+}
+.deleteProjectBtn:hover{
+    transition: 0.3s ease-out;
+    color: var(--project-btn);
+    background-color: #ffffff60;
+}
+.tasks {
+    padding: 0;
+    width: 70%;
+    background-color: var(--tasks-bg);
+    overflow-y: auto;
+}
+
+.tasks-header {
+    height: 15%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: var(--tasks-header-bg);
+    box-shadow: 0px 10px 20px -15px rgba(0, 0, 0, 0.75);
+    position: sticky;
+    top: 0;
+    z-index: 1;  
+}
+
+.tasks-header h1 {
+    margin-left: 20px;
+    color: var(--tasks-header);
+
+    font-style: italic;
+    font-size: 2rem;
+    letter-spacing: 4px;
+    opacity: 0.85;
+}
+
+#openTaskForm {
+    margin-right: 20px;
+    padding: 0;
+
+    width: 70px;
+    height: 70px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    background-color: var(--tasks-header-bg);
+    color: var(--tasks-header);
+    border: none;
+    border-radius: 5px;
+
+    font-size: 80px;
+    font-weight: 100;
+    opacity: 0.8;
+
+    transition: 0.3s ease;
+}
+
+#openTaskForm:hover {
+    transition: 0.3s ease-out;
+    background-color: #ffffffa2;
+    opacity: 0.6;
+}
+
+.task {
+    margin: 12px;
+    margin-top: 30px;
+    padding: 10px;
+
+    border-radius: 5px;
+    border-left: 4px solid transparent;
+
+    height: 18%;
+
+    background-color: var(--task-bg);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    box-shadow: 0px 0px 6px 0px rgba(0, 0, 0, 0.75);
+    transition: box-shadow 0.3s ease;
+}
+
+.task:hover {
+    box-shadow: 0 15px 20px rgba(0, 0, 0, 0.3);
+    cursor: pointer;
+}
+
+.title {
+    color: var(--project-bg);
+    font-size: 1.2rem;
+    font-weight: 600;
+    letter-spacing: 2px;
+    word-spacing: 3px;
+}
+
+.desc {
+    font-size: 0.9rem;
+    opacity: 0.6;
+}
+
+.priority {
+    padding: 5px;
+    width: 50px;
+    height: 25px;
+    border-radius: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.priority-high {
+    background-color: var(--red-priority);
+    color: rgba(255, 255, 255, 0.779);
+}
+
+.priority-medium {
+    background-color: var(--yellow-priority);
+    color: rgba(0, 0, 0, 0.6);
+}
+
+.priority-low {
+    background-color: var(--green-priority);
+    color: rgba(255, 255, 255, 0.779);
+}
+
+.task:has(.priority-high) { border-left-color: var(--red-priority); }
+.task:has(.priority-medium) { border-left-color: var(--yellow-priority); }
+.task:has(.priority-low) { border-left-color: var(--green-priority); }
+
+.task-right-side {
+    height: 100%;
+    width: 20%;
+
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    justify-content: space-between;
+}
+
+.task-actions {
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+    gap: 20px;
+}
+
+.deleteTaskBtn {
+    width: 70px;
+    height: 30px;
+
+    background-color: var(--project-bg);
+    color: var(--main-text);
+
+    font-family: "Old Standard TT", serif;
+    font-size: 15px;
+    font-weight: 600;
+
+    border: none;
+    border-radius: 5px;
+
+    transition: 0.3s ease;
+}
+
+.deleteTaskBtn:hover {
+    background-color: #4f5d2fca;
+    transition: 0.3s ease-out;
+    cursor: pointer;
+}
+
+.complete {
+    width: 25px;
+    accent-color: var(--project-bg);
+
+}
+
+
+.projectFormDiv {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1000;
+
+    background-color: var(--task-bg);
+
+    width: 500px;
+    height: 100px;
+
+    padding: 10px;
+    display: none;
+}
+
+.projectFormDiv form {
+    height: 100%;
+    width: 100%;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 5px;
+}
+
+.projectFormDiv form label {
+    font-size: 20px;
+    color: var(--project-bg);
+    font-weight: 600;
+
+}
+
+.projectFormDiv form input {
+    align-self: stretch;
+    border: none;
+    height: 30px;
+    font-family: "Old Standard TT", serif;
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--project-bg);
+    padding-left: 5px;
+    outline: 1px dashed var(--project-bg);
+    border-radius: 5px;
+}
+
+.projectFormDiv form button {
+    align-self: flex-end;
+    background-color: var(--project-bg);
+    color: var(--main-text);
+
+    width: 120px;
+    height: 35px;
+
+    font-family: "Old Standard TT", serif;
+    font-size: 15px;
+    font-weight: 600;
+
+    border: none;
+    border-radius: 5px;
+
+    transition: 0.3s ease;
+}
+
+.projectFormDiv form button:hover {
+    background-color: #4f5d2fca;
+    transition: 0.3s ease-out;
+    cursor: pointer;
+}
+
+.taskFormDiv {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1000;
+
+    background-color: var(--task-bg);
+
+    width: 600px;
+    height: 350px;
+    padding: 20px;
+    padding: 10px;
+
+    display: none;
+}
+
+.taskFormDiv form {
+    height: 100%;
+    width: 100%;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 5px;
+}
+
+.taskFormDiv form label {
+    font-size: 20px;
+    color: var(--project-bg);
+    font-weight: 600;
+    margin-top: 10px;
+}
+
+.taskFormDiv form input {
+    align-self: stretch;
+    border: none;
+    height: 40px;
+    font-family: "Old Standard TT", serif;
+    font-size: 18px;
+    font-weight: 600;
+    color: var(--project-bg);
+    padding-left: 5px;
+    outline: 1px dashed var(--project-bg);
+    border-radius: 5px;
+}
+
+.taskFormDiv form select {
+    align-self: stretch;
+    border: none;
+    height: 40px;
+    font-family: "Old Standard TT", serif;
+    font-size: 18px;
+    font-weight: 600;
+    color: var(--project-bg);
+    padding-left: 5px;
+    outline: 1px dashed var(--project-bg);
+    border-radius: 5px;
+}
+
+.taskFormDiv form option:hover {
+    background-color: var(--project-bg);
+    color: var(--main-text);
+}
+
+.taskFormDiv form button {
+    align-self: flex-end;
+    background-color: var(--project-bg);
+    color: var(--main-text);
+
+    margin-top: 10px;
+    width: 120px;
+    height: 40px;
+
+    font-family: "Old Standard TT", serif;
+    font-size: 15px;
+    font-weight: 600;
+
+    border: none;
+    border-radius: 5px;
+
+    transition: 0.3s ease;
+}
+
+.taskFormDiv form button:hover {
+    background-color: #4f5d2fca;
+    transition: 0.3s ease-out;
+    cursor: pointer;
+}
+.projectFormDiv, .taskFormDiv {
+    border-radius: 8px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
+    border-top: 3px solid var(--project-bg); /* anchor it visually */
+    animation: fadeIn 0.2s ease;
+}
+@keyframes fadeIn {
+    from { opacity: 0; transform: translate(-50%, -48%); }
+    to   { opacity: 1; transform: translate(-50%, -50%); }
+}
+
+::-webkit-scrollbar {
+    width: 6px;
+}
+
+::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+}
+
+.projects::-webkit-scrollbar-thumb {
+    background-color: rgba(255, 255, 255, 0.2);
+}

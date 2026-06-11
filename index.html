@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Todo-list</title>
+    <head>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Old+Standard+TT:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+</head>
+</head>
+
+<body>
+    <main class="container">
+        <div class="projects" id="projects">
+            <div class="projects-header">
+                <h1>My Projects</h1>
+                <button id="addProject">Add Project</button>
+            </div>
+
+            <div class="projects-content" id="projects-content">
+            </div>
+
+        </div>
+        <div class="tasks">
+            <div class="tasks-header">
+                <h1>Tasks</h1>
+                <button id="openTaskForm">+</button>
+            </div>
+            <div id="task-container">
+                
+            </div>
+
+        </div>
+    </main>
+
+    <div class="projectFormDiv" id="projectFormDiv">
+        <form id="projectForm">
+            <label for="projectName">Enter a name for your project:</label>
+            <input type="text" id="projectName" placeholder="e.g. (University study)">
+            <button id="newProjectBtn">Add Project</button>
+        </form>
+    </div>
+
+    <div class="taskFormDiv" id="taskFormDiv">
+        <form id="taskForm">
+            <label for="title">
+                Enter Task title:
+            </label>
+            <input type="text" id="title">
+
+            <label for="desc">
+                Describe your task:
+            </label>
+            <input type="text" id="desc">
+
+            <label for="priority">
+                Task priority:
+            </label>
+            <select id="priority">
+                <option value="High" selected>High</option>
+                <option value="Medium">Medium</option>
+                <option value="Low">Low</option>
+            </select>
+
+            <label for="dueDate">
+                Due Date:
+            </label>
+            <input type="date" id="dueDate">
+            <button id="addTaskBtn">Add Task</button>
+        </form>
+    </div>
+</body>
+
+</html>
